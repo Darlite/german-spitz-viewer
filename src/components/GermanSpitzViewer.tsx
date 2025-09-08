@@ -1,6 +1,7 @@
 "use client";
 import React, {useState} from 'react';
 import styles from "@/app/page.module.css";
+import Image from "next/image";
 
 const GermanSpitzViewer: React.FC = () => {
     const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -23,11 +24,11 @@ const GermanSpitzViewer: React.FC = () => {
         <div>
             <button className={styles.spitzButton} onClick={fetchImage}>🐶</button>
             {loading && <div className={styles.spinner}></div>}
-            {imageUrl && (
-                <div className={styles.spitzPhotoWrapper}>
-                    <img src={imageUrl} alt="German Spitz" style={{maxWidth: '400px', marginTop: '20px'}}/>
-                </div>
-            )}
+            <div className={styles.spitzPhotoWrapper}>
+                {imageUrl && (
+                    <img src={imageUrl} alt="German Spitz" className={styles.spitzPhoto} />
+                )}
+            </div>
         </div>
     );
 };
