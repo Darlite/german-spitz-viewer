@@ -6,6 +6,7 @@
     display: grid;
     min-height: 100svh;
     font-family: var(--font-geist-sans);
+    background: #ffd2fe;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -210,7 +211,7 @@ a.secondary {
 .spitzPhotoWrapper {
     display: flex;
     justify-content: center;
-    min-height: 300px;
+    min-height: 259px;
 }
 
 .spitzPhoto {
