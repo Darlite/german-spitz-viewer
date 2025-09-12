@@ -23,6 +23,7 @@ const breeds = ['spitz',
 const GermanSpitzViewer: React.FC = () => {
     const [imageUrl, setImageUrl] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+    const [selectedBreed, setSelectedBreed] = useState<string | null>(null);
 
     const fetchImage = async () => {
         setLoading(true);
@@ -32,6 +33,7 @@ const GermanSpitzViewer: React.FC = () => {
             const response = await fetch(`https://dog.ceo/api/breed/${randomBreed}/images/random`);
             const data = await response.json();
             setImageUrl(data.message);
+            setSelectedBreed(randomBreed);
         } finally {
             setLoading(false);
         }
@@ -46,6 +48,7 @@ const GermanSpitzViewer: React.FC = () => {
                 {imageUrl && (
                     <img src={imageUrl} alt="Spitz-type dog" className={styles.spitzPhoto}/>
                 )}
+                <h3>{selectedBreed?.toUpperCase()}</h3>
             </div>
         </div>
     );

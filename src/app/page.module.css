@@ -209,9 +209,12 @@ a.secondary {
 }
 
 .spitzPhotoWrapper {
-    display: flex;
     justify-content: center;
     min-height: 259px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 .spitzPhoto {
