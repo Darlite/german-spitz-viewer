@@ -4,7 +4,7 @@ import GermanSpitzViewer from "@/components/GermanSpitzViewer";
 export default function Home() {
     return (
         <div className={styles.page}>
-            <header className={styles.header}>Spitz button</header>
+            <header className={styles.header}>Spitz-type dog button</header>
             <GermanSpitzViewer/>
         </div>
     );

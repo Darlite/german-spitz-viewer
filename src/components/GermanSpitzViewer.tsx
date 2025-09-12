@@ -1,7 +1,24 @@
 "use client";
 import React, {useState} from 'react';
 import styles from "@/app/page.module.css";
-import Image from "next/image";
+
+const breeds = ['spitz',
+    'buhund/norwegian',
+    'akita',
+    'chow',
+    'corgi/cardigan',
+    'elkhound/norwegian',
+    'eskimo',
+    'finnish/lapphund',
+    'husky',
+    'keeshond',
+    'malamute',
+    'pembroke',
+    'pomeranian',
+    'samoyed',
+    'schipperke',
+    'shiba'
+];
 
 const GermanSpitzViewer: React.FC = () => {
     const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -11,7 +28,8 @@ const GermanSpitzViewer: React.FC = () => {
         setLoading(true);
         setImageUrl(null);
         try {
-            const response = await fetch('https://dog.ceo/api/breed/spitz/images/random');
+            const randomBreed = breeds[Math.floor(Math.random() * breeds.length)];
+            const response = await fetch(`https://dog.ceo/api/breed/${randomBreed}/images/random`);
             const data = await response.json();
             setImageUrl(data.message);
         } finally {
@@ -26,7 +44,7 @@ const GermanSpitzViewer: React.FC = () => {
             {loading && <div className={styles.spinner}></div>}
             <div className={styles.spitzPhotoWrapper}>
                 {imageUrl && (
-                    <img src={imageUrl} alt="German Spitz" className={styles.spitzPhoto} />
+                    <img src={imageUrl} alt="Spitz-type dog" className={styles.spitzPhoto}/>
                 )}
             </div>
         </div>
